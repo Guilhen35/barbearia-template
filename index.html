@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sr. Pedro Barbearia</title>
+  <link rel="icon" href="assets/icon-192x192.png">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    @keyframes pulse-diamond {
+      0%,100% { opacity:0.4; transform:rotate(45deg) scale(1); }
+      50% { opacity:1; transform:rotate(45deg) scale(1.4); }
+    }
+    .lithuan-footer {
+      background: #070707;
+      border-top: 1px solid rgba(200,155,60,0.12);
+      padding: 32px 20px 36px;
+      text-align: center;
+      font-family: 'DM Sans', Arial, sans-serif;
+    }
+    .lithuan-footer .lf-deco { display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:16px; }
+    .lithuan-footer .lf-line-l { height:1px;width:40px;background:linear-gradient(90deg,transparent,rgba(200,155,60,0.4)); }
+    .lithuan-footer .lf-line-r { height:1px;width:40px;background:linear-gradient(90deg,rgba(200,155,60,0.4),transparent); }
+    .lithuan-footer .lf-diamond { width:7px;height:7px;border:1.5px solid rgba(200,155,60,0.8);animation:pulse-diamond 2s ease-in-out infinite; }
+    .lithuan-footer .lf-by { margin:0 0 4px;font-size:10px;letter-spacing:3px;color:rgba(255,255,255,0.18);text-transform:uppercase; }
+    .lithuan-footer .lf-name { margin:0 0 4px;font-size:16px;font-weight:600;letter-spacing:5px;color:rgba(200,155,60,0.65);text-transform:uppercase; }
+    .lithuan-footer .lf-sub { margin:0 0 16px;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,0.15);text-transform:uppercase; }
+    .lithuan-footer .lf-links { display:flex;align-items:center;justify-content:center;gap:20px; }
+    .lithuan-footer .lf-link { display:flex;align-items:center;gap:5px;text-decoration:none;color:rgba(200,155,60,0.45);font-size:11px;letter-spacing:1px;text-transform:uppercase;transition:color 0.3s; }
+    .lithuan-footer .lf-link:hover { color:rgba(200,155,60,0.8); }
+    .lithuan-footer .lf-divider { width:1px;height:12px;background:rgba(200,155,60,0.2); }
+  </style>
+</head>
+<body>
+
+  <header class="menu-premium">
+    <a href="#inicio" class="menu-logo" onclick="voltarParaInicio()">Sr. Pedro</a>
+    <button class="menu-botao" onclick="alternarMenu()">☰</button>
+    <nav class="menu-links" id="menuLinks">
+      <a href="#inicio" onclick="voltarParaInicio()">Início</a>
+      <a href="#galeria" onclick="abrirSecaoMenu('#galeria')">Nosso trabalho</a>
+      <a href="#historia" onclick="abrirSecaoMenu('#historia')">História</a>
+      <a href="#avaliacoes" onclick="abrirSecaoMenu('#avaliacoes')">Avaliações</a>
+      <a href="#localizacao" onclick="abrirSecaoMenu('#localizacao')">Localização</a>
+      <a href="#barbeiros" onclick="irParaAgendamento()">Barbeiros</a>
+      <!-- Link Admin removido no template -->
+    </nav>
+  </header>
+
+  <main class="app">
+
+    <section class="hero" id="inicio">
+      <header class="topo">
+        <img src="assets/logo.png" alt="Logo Sr. Pedro Barbearia" class="logo">
+      </header>
+      <div class="conteudo">
+        <span class="tag">Sr. Pedro Barbearia</span>
+        <h1>Seu estilo,<br>nossa arte.</h1>
+        <p>Agende seu horário com praticidade e garanta seu visual com os melhores barbeiros.</p>
+        <a href="#barbeiros" class="botao-principal" onclick="irParaAgendamento()">Agendar horário</a>
+      </div>
+    </section>
+
+    <section class="beneficios">
+      <div class="card">
+        <h3>Profissionais</h3>
+        <p>Barbeiros especializados em cortes clássicos e modernos.</p>
+      </div>
+      <div class="card">
+        <h3>Cortes atuais</h3>
+        <p>Degradê, disfarçado, nevou, desenhos e estilos personalizados.</p>
+      </div>
+      <div class="card">
+        <h3>Agendamento fácil</h3>
+        <p>Escolha o barbeiro, serviço, data e horário direto pelo celular.</p>
+      </div>
+    </section>
+
+    <section class="avaliacoes secao-escondida" id="avaliacoes">
+      <span class="tag">EXPERIÊNCIA PREMIUM</span>
+      <h2>Mais que clientes.<br>Uma experiência de respeito.</h2>
+      <p class="aviso-demo">Depoimentos ilustrativos · modelo de demonstração</p>
+      <div class="avaliacoes-container">
+        <div class="avaliacao-card">
+          <p>"Atendimento top, corte muito bem feito e ambiente diferenciado."</p>
+          <strong>★★★★★</strong>
+          <span>João Pedro</span>
+        </div>
+        <div class="avaliacao-card">
+          <p>"Agendamento fácil e barbeiros muito profissionais."</p>
+          <strong>★★★★★</strong>
+          <span>Lucas Andrade</span>
+        </div>
+        <div class="avaliacao-card">
+          <p>"Barbearia premium de verdade. Recomendo demais."</p>
+          <strong>★★★★★</strong>
+          <span>Rafael Martins</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="galeria secao-escondida" id="galeria">
+      <span class="tag">NOSSO TRABALHO</span>
+      <h2>Momentos que mostram a experiência Sr. Pedro</h2>
+      <p class="galeria-subtitulo">Atendimento, estilo e cuidado em cada detalhe.</p>
+      <button class="botao-galeria" id="botaoGaleria" onclick="alternarGaleria()">Ver nosso trabalho</button>
+      <div class="galeria-container" id="galeriaConteudo">
+        <img src="assets/galeria1.jpeg" alt="Barbeiro atendendo cliente">
+        <img src="assets/galeria2.jpeg" alt="Procedimento capilar na barbearia">
+        <img src="assets/galeria3.jpeg" alt="Finalização de corte">
+        <img src="assets/galeria4.jpeg" alt="Atendimento visto pelo espelho">
+        <img src="assets/galeria5.jpeg" alt="Cliente na barbearia">
+        <img src="assets/galeria6.jpeg" alt="Corte em andamento">
+      </div>
+    </section>
+
+    <section class="historia secao-escondida" id="historia">
+      <span class="tag">NOSSA HISTÓRIA</span>
+      <h2>Mais que cortes.<br>Construindo experiências.</h2>
+      <button class="botao-historia" id="botaoHistoria" onclick="alternarHistoria()">Conhecer nossa história</button>
+      <div class="historia-conteudo" id="historiaConteudo">
+        <p>A história da Sr. Pedro Barbearia 💈</p>
+        <p>Tudo começou em <strong>2016</strong>, quando recebi uma proposta enquanto trabalhava no comércio — e foi ali que descobri o ramo que tanto amo. De 2016 a 2019, trabalhei como colaborador e também tive sociedade, acumulando experiência, aprendizado e muito propósito.</p>
+        <p>Em <strong>2019</strong>, decidi caminhar com minhas próprias pernas e nasceu a <strong>Sr. Pedro Barbearia</strong>. Mais do que abrir um negócio, eu queria dar continuidade a um legado.</p>
+        <p>Meu avô, o <strong>Senhor Pedro</strong>, faleceu um ano antes… e foi nele que encontrei o motivo e a força para começar. A barbearia carrega o nome dele como forma de homenagem — para que sua memória permaneça viva todos os dias.</p>
+        <p>Cada detalhe do espaço foi pensado com carinho: o estilo retrô, a decoração, e principalmente o chapéu — o famoso <em>"chapeuzinho"</em> — que era dele e hoje faz parte da identidade da barbearia. A logo, com o "rosto dele", representa essa presença eterna, como se ele ainda estivesse ali comigo.</p>
+        <p>Desde então, seguimos na luta. Sabemos que não é fácil… a vida muitas vezes tenta nos levar por outros caminhos. Mas a fé nos mantém firmes.</p>
+        <p>Aqui, o trabalho é feito com <strong>propósito</strong>. Com <strong>respeito</strong>. Com <strong>dedicação</strong>. E acima de tudo, colocando <strong>Deus em primeiro lugar</strong>. 🙏</p>
+      </div>
+    </section>
+
+    <section class="localizacao secao-escondida" id="localizacao">
+      <span class="tag">LOCALIZAÇÃO</span>
+      <h2>Venha até a Sr. Pedro Barbearia</h2>
+      <!-- Endereço a ser configurado pelo cliente -->
+      <p class="localizacao-texto">Rua Exemplo, 123 · Centro · Sua Cidade – UF<br><small>(endereço fictício · modelo de demonstração)</small></p>
+      <a class="botao-mapa" href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">Abrir no Google Maps</a>
+    </section>
+
+    <section class="barbeiros" id="barbeiros">
+      <h2>Escolha seu barbeiro</h2>
+      <p class="barbeiros-subtitulo">Primeiro selecione o profissional desejado.</p>
+      <div class="barbeiros-container"></div>
+    </section>
+
+    <section class="servicos" id="servicos">
+      <h2>Agora escolha o serviço</h2>
+      <div class="filtros">
+        <button onclick="filtrarServicos('todos')">Todos</button>
+        <button onclick="filtrarServicos('cortes')">Cortes</button>
+        <button onclick="filtrarServicos('barba')">Barba</button>
+        <button onclick="filtrarServicos('combos')">Combos</button>
+        <button onclick="filtrarServicos('quimica')">Química</button>
+        <button onclick="filtrarServicos('extras')">Extras</button>
+      </div>
+      <div class="cards"></div>
+    </section>
+
+    <section class="agenda" id="agenda">
+      <h2>Escolha o dia</h2>
+      <p class="agenda-subtitulo">Selecione uma data disponível para ver os horários.</p>
+      <div class="calendario" id="calendario"></div>
+      <h3 class="titulo-horarios">Escolha o horário</h3>
+      <div class="horarios"></div>
+
+      <section class="secao-pagamento secao-escondida" id="secaoPagamento">
+        <h2>Forma de pagamento</h2>
+        <p class="confirmacao-subtitulo">Opcional — escolha como prefere pagar.</p>
+        <div class="pag-opcoes">
+          <div class="pag-opcao" id="pag-sinal" onclick="selecionarPagamento('sinal')">
+            <span class="pag-icone">💳</span>
+            <strong>Pagar sinal</strong>
+            <span>50% via Pix agora</span>
+          </div>
+          <div class="pag-opcao" id="pag-total" onclick="selecionarPagamento('total')">
+            <span class="pag-icone">✅</span>
+            <strong>Pagar tudo</strong>
+            <span>100% via Pix agora</span>
+          </div>
+          <div class="pag-opcao" id="pag-hora" onclick="selecionarPagamento('hora')">
+            <span class="pag-icone">⏰</span>
+            <strong>Pagar na hora</strong>
+            <span>No dia do atendimento</span>
+          </div>
+        </div>
+        <div id="pixInfo" style="display:none;margin-top:20px;"></div>
+      </section>
+
+      <section class="confirmacao" id="confirmacao">
+        <h2>Finalizar agendamento</h2>
+        <p class="confirmacao-subtitulo">Preencha seus dados para confirmar.</p>
+        <div class="resumo-agendamento">
+          <div class="resumo-item"><span>Barbeiro</span><strong id="resumoBarbeiro">-</strong></div>
+          <div class="resumo-item"><span>Serviço</span><strong id="resumoServico">-</strong></div>
+          <div class="resumo-item"><span>Horário</span><strong id="resumoHorario">-</strong></div>
+          <div class="resumo-item destaque"><span>Valor</span><strong id="resumoValor">-</strong></div>
+        </div>
+        <div class="formulario">
+          <input type="text" id="nomeCliente" placeholder="Seu nome">
+          <input type="tel" id="telefoneCliente" placeholder="Seu WhatsApp">
+          <textarea id="observacoesCliente" placeholder="Observações (opcional)"></textarea>
+          <button class="botao-confirmar" onclick="confirmarAgendamento()">
+            Confirmar agendamento via WhatsApp
+          </button>
+        </div>
+      </section>
+
+    </section>
+
+  <!-- TELA DEMO — aparece ao tentar confirmar -->
+  <div id="telademo" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;padding:20px;">
+    <div style="background:#0f0f0f;border:1px solid rgba(200,155,60,0.4);border-radius:24px;padding:40px 32px;max-width:420px;width:100%;text-align:center;">
+      <div style="font-size:56px;margin-bottom:16px;">🔒</div>
+      <h2 style="font-family:Georgia,serif;color:#c89b3c;font-size:22px;margin-bottom:12px;">Sistema demonstrativo</h2>
+      <p style="color:#d0d0d0;font-size:14px;margin-bottom:28px;line-height:1.7;">Este é um modelo de demonstração.<br>Entre em contato com a <strong style="color:#c89b3c;">Lithuan Studio</strong> para ativar o sistema completo de agendamento para a sua barbearia!</p>
+      <a href="https://paulohenrique-dev.vercel.app/#contato" target="_blank" rel="noopener noreferrer" style="display:block;width:100%;padding:16px;border:none;border-radius:14px;background:linear-gradient(135deg,#a87520,#f2d27a);color:#111;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:2px;cursor:pointer;text-decoration:none;margin-bottom:12px;">💬 Falar com o desenvolvedor</a>
+      <button onclick="fecharTelaDemo()" style="width:100%;padding:14px;border:1px solid rgba(200,155,60,0.3);border-radius:14px;background:transparent;color:#aaa;font-size:13px;cursor:pointer;">Fechar</button>
+    </div>
+  </div>
+
+  <!-- TELA DE ERRO -->
+  <div id="telaerro" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;padding:20px;">
+    <div style="background:#0f0f0f;border:1px solid rgba(231,76,60,0.4);border-radius:24px;padding:40px 32px;max-width:420px;width:100%;text-align:center;">
+      <div style="font-size:64px;margin-bottom:16px;">❌</div>
+      <h2 style="font-family:Georgia,serif;color:#e74c3c;font-size:26px;margin-bottom:12px;">Não foi possível agendar</h2>
+      <p id="mensagemErro" style="color:#d0d0d0;font-size:15px;margin-bottom:24px;line-height:1.6;"></p>
+      <button onclick="fecharTelaErro()" style="width:100%;padding:16px;border:none;border-radius:14px;background:linear-gradient(135deg,#a87520,#f2d27a);color:#111;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:2px;cursor:pointer;">Fechar</button>
+    </div>
+  </div>
+
+  </main>
+
+  <script src="script.js"></script>
+
+  <!-- Rodapé Lithuan Studio -->
+  <footer class="lithuan-footer">
+    <div class="lf-deco">
+      <div class="lf-line-l"></div>
+      <div class="lf-diamond"></div>
+      <div class="lf-line-r"></div>
+    </div>
+    <p class="lf-by">Desenvolvido por</p>
+    <p class="lf-name">Lithuan Studio</p>
+    <p class="lf-sub">Design &amp; Desenvolvimento Web</p>
+    <div class="lf-links">
+      <a href="https://instagram.com/lithuanstudio" target="_blank" rel="noopener noreferrer" class="lf-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        @lithuanstudio
+      </a>
+      <div class="lf-divider"></div>
+      <a href="https://lithuanstudio.com.br" target="_blank" rel="noopener noreferrer" class="lf-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        lithuanstudio.com.br
+      </a>
+    </div>
+  </footer>
+
+</body>
+</html>
